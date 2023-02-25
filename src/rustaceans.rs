@@ -1,4 +1,4 @@
-use crate::auth::BasicAuth;
+use crate::{auth::BasicAuth, DbConn};
 use rocket::{
     serde::json::{
         Value,
@@ -8,7 +8,7 @@ use rocket::{
 };
 
 #[get("/rustaceans")]
-pub fn get_rustanceans(_auth: BasicAuth) -> Value {
+pub fn get_rustanceans(_auth: BasicAuth, _db: DbConn) -> Value {
     json!([{"id": 1, "name": "Charly"}, {"id": 1, "name": "Bere"}])
 }
 
